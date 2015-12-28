@@ -1,0 +1,19 @@
+﻿<UserControl
+    x:Class="CcontreC.Questions.TestQuestion2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CcontreC.Questions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="20" >What day is it?</TextBlock>
+        <TextBlock FontSize="14">Patient Response:</TextBlock>
+        <RadioButton FontSize="14" GroupName="Response" Name="Correct" Click="Correct_Click">Responded Correctly</RadioButton>
+        <RadioButton FontSize="14" GroupName="Response" Name="OffByOne" Click="OffByOne_Click">Off by one</RadioButton>
+        <RadioButton FontSize="14" GroupName="Response" Name="Off" Click="Off_Click">Off by more than one</RadioButton>
+    </StackPanel>
+</UserControl>

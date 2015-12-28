@@ -1,0 +1,120 @@
+﻿<Page
+    x:Class="CcontreC.PatientData"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CcontreC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+    mc:Ignorable="d">
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock VerticalAlignment="Top" FontSize="24">Patient Data</TextBlock>
+        <!--Age-->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="18" HorizontalAlignment="Right" Margin="0,0,10,0">Age:</TextBlock>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <ComboBox Name="Age_Tens" FontSize="18" Width="5">
+                    <ComboBoxItem Content="0" />
+                    <ComboBoxItem Content="1" />
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                    <ComboBoxItem Content="5" />
+                    <ComboBoxItem Content="6" />
+                    <ComboBoxItem Content="7" />
+                    <ComboBoxItem Content="8" />
+                    <ComboBoxItem Content="9" />
+                    <ComboBoxItem Content="10" />
+                </ComboBox>
+                <ComboBox Name="Age_Ones" FontSize="18" Width="5" >
+                    <ComboBoxItem Content="0" />
+                    <ComboBoxItem Content="1" />
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                    <ComboBoxItem Content="5" />
+                    <ComboBoxItem Content="6" />
+                    <ComboBoxItem Content="7" />
+                    <ComboBoxItem Content="8" />
+                    <ComboBoxItem Content="9" />
+                    <ComboBoxItem Content="10" />
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+
+        <!--Sex-->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="18" HorizontalAlignment="Right" Margin="0,0,10,0">Sex:</TextBlock>
+            <ComboBox Name="Sex" Grid.Column="1" FontSize="18">
+                <ComboBoxItem Content="Male" />
+                <ComboBoxItem Content="Female" />
+            </ComboBox>
+        </Grid>
+
+        <!--Weight-->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="18" HorizontalAlignment="Right" Margin="0,0,10,0">Weight:</TextBlock>
+            <TextBox Grid.Column="1" Name="Weight" Width="1" HorizontalAlignment="Left" FontSize="18"/>
+        </Grid>
+
+        <!--Height-->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="18" HorizontalAlignment="Right" Margin="0,0,10,0">Height:</TextBlock>
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <TextBox Name="Height_Feet" Width="1" FontSize="18"/>
+                <TextBlock FontSize="18" Margin="10,0,10,0">ft.</TextBlock>
+                <TextBox Name="Height_Inches" Width="1" FontSize="18"/>
+                <TextBlock FontSize="18" Margin="10,0,10,0">in.</TextBlock>
+            </StackPanel>
+
+        </Grid>
+
+        <!--Race-->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="18" HorizontalAlignment="Right" Margin="0,0,10,0">Race:</TextBlock>
+            <ComboBox Name="Race" Grid.Column="1" FontSize="18">
+                <ComboBoxItem Content="White" />
+                <ComboBoxItem Content="Black" />
+                <ComboBoxItem Content="Hispanic" />
+                <ComboBoxItem Content="Asian" />
+                <ComboBoxItem Content="Other" />
+            </ComboBox>
+        </Grid>
+
+        <!--Concussed-->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="18" HorizontalAlignment="Right" Margin="0,0,10,0">Concussed:</TextBlock>
+            <ComboBox Name="Concussed" Grid.Column="1" FontSize="18">
+                <ComboBoxItem Content="Not Suspected" />
+                <ComboBoxItem Content="Suspected" />
+                <ComboBoxItem Content="Confirmed" />
+            </ComboBox>
+        </Grid>
+
+        <Button Click="Button_Click" HorizontalAlignment="Center" Margin="20">Begin</Button>
+    </StackPanel>
+</Page>

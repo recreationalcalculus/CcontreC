@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="CcontreC.TestFrame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CcontreC"
+    xmlns:question="using:CcontreC.Questions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">Sensor Output</TextBlock>
+        <question:TestQuestion1 x:Name="Q1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" />
+        <question:TestQuestion2 x:Name="Q2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" Visibility="Collapsed" />
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock>Subtest Score: </TextBlock>
+            <TextBlock Text="{Binding Score, FallbackValue='-2', TargetNullValue='-3'}" Name="SubScore"/>
+        </StackPanel>
+        <TextBlock Grid.Row="2" Grid.Column="1">Test Score:</TextBlock>
+        <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="Next" Click="Next_Click">Next</Button>
+    </Grid>
+</Page>
