@@ -102,7 +102,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\PatientDataModel.cs" />
-    <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="PatientData.xaml.cs">
       <DependentUpon>PatientData.xaml</DependentUpon>
     </Compile>

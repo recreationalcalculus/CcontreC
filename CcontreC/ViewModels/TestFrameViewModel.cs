@@ -34,7 +34,6 @@ namespace CcontreC.ViewModels
         }
 
         public Dictionary<string, decimal> Q1_SubScores;
-        public Dictionary<string, decimal> Q2_SubScores;
 
         private decimal q2_score;
         public decimal Q2_Score
