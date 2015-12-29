@@ -11,9 +11,15 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock FontSize="20" >What day is it?</TextBlock>
-        <TextBlock FontSize="14">Patient Response:</TextBlock>
-        <RadioButton FontSize="14" GroupName="Response" Name="Correct" Click="Correct_Click">Responded Correctly</RadioButton>
-        <RadioButton FontSize="14" GroupName="Response" Name="OffByOne" Click="OffByOne_Click">Off by one</RadioButton>
-        <RadioButton FontSize="14" GroupName="Response" Name="Off" Click="Off_Click">Off by more than one</RadioButton>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="14">Patient Response:</TextBlock>
+            <ComboBox Name="DayResponse" SelectionChanged="DayResponse_SelectionChanged">
+                <ComboBoxItem>Correct Day</ComboBoxItem>
+                <ComboBoxItem>Off By One</ComboBoxItem>
+                <ComboBoxItem>Off By More Than One</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        
+        
     </StackPanel>
 </UserControl>

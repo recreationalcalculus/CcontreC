@@ -23,24 +23,61 @@ namespace CcontreC
     public sealed partial class TestFrame : Page
     {
         private List<Object> testData;
-        private List<decimal> subTestScores;
-        private int clicks = 0;
+        private ViewModels.TestFrameViewModel vm;
+        private int currentQuestion = 1;
 
         public TestFrame()
         {
             this.InitializeComponent();
-            SubScore.DataContext = Q1.DataContext;
+
+            vm = new ViewModels.TestFrameViewModel();
+            this.DataContext = vm;
+
+            testData = new List<Object>();
+
+            Q1.SelectionChanged += Q1_SelectionChanged;
+
+            Q2.SelectionChanged += Q2_SelectionChanged;
+        }
+
+        private void Q2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            switch (cb.SelectedIndex)
+            {
+                case 0:
+                    vm.Q2_Score = 5m; //correct day
+                    break;
+                case 1:
+                    vm.Q2_Score = 3m; //off by one
+                    break;
+                default:
+                    vm.Q2_Score = 0m; //off by more than one
+                    break;
+            }
+
+            vm.UpdateScore();
+        }
+
+        private void Q1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            vm.Q1_SubScores[cb.Name] = cb.SelectedIndex + 1m;
+            vm.Q1_UpdateScore();
+            vm.UpdateScore();
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            if (clicks == 0)
+            if (currentQuestion == 1)
             {
                 Q1.Visibility = Visibility.Collapsed;
-                subTestScores.Add(decimal.Parse(SubScore.Text));
+                Q1_SubScore.Visibility = Visibility.Collapsed;
+                //testData.Add(vm.q1.EventRecord);
+                vm.UpdateScore();
                 Q2.Visibility = Visibility.Visible;
-                SubScore.DataContext = Q2.DataContext;
-                clicks++;
+                Q2_SubScore.Visibility = Visibility.Visible;
+                currentQuestion++;
             } else
             {
 
@@ -48,6 +85,5 @@ namespace CcontreC
 
         }
 
-        
     }
 }

@@ -119,6 +119,7 @@
     <Compile Include="TestFrame.xaml.cs">
       <DependentUpon>TestFrame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\TestFrameViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

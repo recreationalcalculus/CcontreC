@@ -27,10 +27,14 @@
         <question:TestQuestion1 x:Name="Q1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" />
         <question:TestQuestion2 x:Name="Q2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" Visibility="Collapsed" />
         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock>Subtest Score: </TextBlock>
-            <TextBlock Text="{Binding Score, FallbackValue='-2', TargetNullValue='-3'}" Name="SubScore"/>
+            <TextBlock Margin="0,0,5,0">Subtest Score: </TextBlock>
+            <TextBlock Text="{Binding Q1_Score, FallbackValue='Binding Failed', TargetNullValue=''}" Name="Q1_SubScore"/>
+            <TextBlock Text="{Binding Q2_Score, FallbackValue='Binding Failed', TargetNullValue=''}" Name="Q2_SubScore" Visibility="Collapsed"/>
         </StackPanel>
-        <TextBlock Grid.Row="2" Grid.Column="1">Test Score:</TextBlock>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Margin="0,0,5,0">Score:</TextBlock>
+            <TextBlock Text="{Binding Score, FallbackValue='Binding Failed', TargetNullValue=''}" Name="Score"/>
+        </StackPanel>
         <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="Next" Click="Next_Click">Next</Button>
     </Grid>
 </Page>

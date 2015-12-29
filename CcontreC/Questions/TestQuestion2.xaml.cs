@@ -17,50 +17,25 @@ using Windows.UI.Xaml.Navigation;
 
 namespace CcontreC.Questions
 {
+    
+
     public sealed partial class TestQuestion2 : UserControl
     {
-        Models.QuestionModel question;
+        public event SelectionChangedEventHandler SelectionChanged;
 
         public TestQuestion2()
         {
             this.InitializeComponent();
-
-            question = new Models.QuestionModel("Test Question 2");
-            question.Score = 14m;
-
-            this.DataContext = question;
         }
 
-        public void UpdateScore()
+        
+
+        private void DayResponse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if((bool)Correct.IsChecked)
+            if(SelectionChanged != null)
             {
-                question.Score = 5m;
-            } else if((bool)OffByOne.IsChecked)
-            {
-                question.Score = 2m;
-            } else
-            {
-                question.Score = 0m;
+                SelectionChanged(sender, e);
             }
-        }
-
-        private void Correct_Click(object sender, RoutedEventArgs e)
-        {
-            question.RecordEvent("Responded Correctly");
-            UpdateScore();
-        }
-
-        private void OffByOne_Click(object sender, RoutedEventArgs e)
-        {
-            question.RecordEvent("Off by one");
-            UpdateScore();
-        }
-
-        private void Off_Click(object sender, RoutedEventArgs e)
-        {
-            question.RecordEvent("Off by more than one");
-            UpdateScore();
         }
     }
 }
