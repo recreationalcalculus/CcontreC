@@ -8,6 +8,21 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock FontSize="20" HorizontalAlignment="Center">Text Complete.</TextBlock>
+            <TextBlock FontSize="20" HorizontalAlignment="Center">Save Results?</TextBlock>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Name="Save" Click="Save_Click" Grid.Column="0" HorizontalAlignment="Center" Margin="10">Save</Button>
+                <Button Name="Discard" Click="Discard_Click" Grid.Column="1" HorizontalAlignment="Center" Margin="10">Discard</Button>
+            </Grid>
+            <ScrollViewer Height="300">
+                <TextBlock Name="TestData" TextWrapping="Wrap" Width="135">Test Data</TextBlock>
+            </ScrollViewer>
+        </StackPanel>
 
     </Grid>
 </Page>

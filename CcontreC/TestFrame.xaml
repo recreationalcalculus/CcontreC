@@ -9,12 +9,12 @@
     mc:Ignorable="d">
 
 
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="7*" />
-            <RowDefinition Height="1*" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" x:Name="Top"/>
+            <RowDefinition Height="7*" x:Name="Middle"/>
+            <RowDefinition Height="1*" x:Name="Bottom" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -23,11 +23,14 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">Sensor Output</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" Name="Sensor">Sensor Output</TextBlock>
         <question:TestQuestion1 x:Name="Q1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" />
         <question:TestQuestion2 x:Name="Q2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" Visibility="Collapsed" />
-        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Margin="0,0,5,0">Subtest Score: </TextBlock>
+        <Button Name="FillToggle" HorizontalAlignment="Right" Click="FillToggle_Click" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Width="35" Height="35" Margin="5" >
+            <SymbolIcon Symbol="FullScreen" Name="FillStateButtonSymbol" />
+        </Button>
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Name="Scores">
+            <TextBlock Margin="0,0,5,0">Subtest Score:</TextBlock>
             <TextBlock Text="{Binding Q1_Score, FallbackValue='Binding Failed', TargetNullValue=''}" Name="Q1_SubScore"/>
             <TextBlock Text="{Binding Q2_Score, FallbackValue='Binding Failed', TargetNullValue=''}" Name="Q2_SubScore" Visibility="Collapsed"/>
         </StackPanel>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,38 @@ namespace CcontreC
     /// </summary>
     public sealed partial class ProcessTestData : Page
     {
+
+        private object testData;
+
+        private IRepository remoteRepository;
+        private IRepository localRepository;
+
         public ProcessTestData()
         {
             this.InitializeComponent();
+
+            localRepository = new Repositories.LocalRepository();
+
         }
+
+        private void Discard_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage), null);
+        }
+
+        private async void Save_Click(object sender, RoutedEventArgs e)
+        {
+            await localRepository.Save(testData);
+            Save.Content = "Saved!";
+            Save.IsEnabled = false;
+            Discard.Content = "New Test";
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            testData = e.Parameter;
+            TestData.Text = JsonConvert.SerializeObject(testData);
+        }
+
     }
 }

@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IRepository.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -115,6 +116,8 @@
     <Compile Include="Questions\TestQuestion2.xaml.cs">
       <DependentUpon>TestQuestion2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\FireBaseRepository.cs" />
+    <Compile Include="Repositories\LocalRepository.cs" />
     <Compile Include="TestFrame.xaml.cs">
       <DependentUpon>TestFrame.xaml</DependentUpon>
     </Compile>
